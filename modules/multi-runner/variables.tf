@@ -113,9 +113,10 @@ variable "multi_runner_config" {
     })
 
     matcherConfig = object({
-      labelMatchers = list(list(string))
-      exactMatch    = optional(bool, false)
-      priority      = optional(number, 999)
+      labelMatchers       = list(list(string))
+      exactMatch          = optional(bool, false)
+      priority            = optional(number, 999)
+      enableDefaultLabels = optional(bool, true)
     })
     fifo = optional(bool, false)
     redrive_build_queue = optional(object({

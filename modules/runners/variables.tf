@@ -221,6 +221,12 @@ variable "runner_labels" {
   type        = list(string)
 }
 
+variable "runner_default_labels_enabled" {
+  description = "Enable default labels for the runners (e.g: self-hosted, linux, x64)"
+  type        = bool
+  default     = true
+}
+
 variable "runner_group_name" {
   description = "Name of the runner group."
   type        = string

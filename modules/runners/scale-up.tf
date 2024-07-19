@@ -38,6 +38,7 @@ resource "aws_lambda_function" "scale_up" {
       POWERTOOLS_TRACER_CAPTURE_HTTPS_REQUESTS = var.tracing_config.capture_http_requests
       POWERTOOLS_TRACER_CAPTURE_ERROR          = var.tracing_config.capture_error
       RUNNER_LABELS                            = lower(join(",", var.runner_labels))
+      RUNNER_DEFAULT_LABELS_ENABLED            = var.runner_default_labels_enabled ? "true" : "false"
       RUNNER_GROUP_NAME                        = var.runner_group_name
       RUNNER_NAME_PREFIX                       = var.runner_name_prefix
       RUNNERS_MAXIMUM_COUNT                    = var.runners_maximum_count

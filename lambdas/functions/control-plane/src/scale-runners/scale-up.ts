@@ -64,6 +64,10 @@ function generateRunnerServiceConfig(githubRunnerConfig: CreateGitHubRunnerConfi
     config.push(`--labels ${githubRunnerConfig.runnerLabels}`.trim());
   }
 
+  if (githubRunnerConfig.runnerDefaultLabelsEnabled !== 'true') {
+    config.push(`--no-default-labels`);
+  }
+
   if (githubRunnerConfig.disableAutoUpdate) {
     config.push('--disableupdate');
   }
@@ -221,6 +225,7 @@ export async function scaleUp(eventSource: string, payload: ActionRequestMessage
   const enableOrgLevel = yn(process.env.ENABLE_ORGANIZATION_RUNNERS, { default: true });
   const maximumRunners = parseInt(process.env.RUNNERS_MAXIMUM_COUNT || '3');
   const runnerLabels = process.env.RUNNER_LABELS || '';
+  const runnerDefaultLabelsEnabled = process.env.RUNNER_DEFAULT_LABELS_ENABLED || 'true';
   const runnerGroup = process.env.RUNNER_GROUP_NAME || 'Default';
   const environment = process.env.ENVIRONMENT;
   const ghesBaseUrl = process.env.GHES_URL;
