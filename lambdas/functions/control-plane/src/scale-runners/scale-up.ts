@@ -34,6 +34,7 @@ interface CreateGitHubRunnerConfig {
   ghesBaseUrl: string;
   enableJitConfig: boolean;
   runnerLabels: string;
+  runnerDefaultLabelsEnabled: string;
   runnerGroup: string;
   runnerNamePrefix: string;
   runnerOwner: string;
@@ -302,6 +303,7 @@ export async function scaleUp(eventSource: string, payload: ActionRequestMessage
           enableJitConfig,
           ghesBaseUrl,
           runnerLabels,
+          runnerDefaultLabelsEnabled,
           runnerGroup,
           runnerNamePrefix,
           runnerOwner,

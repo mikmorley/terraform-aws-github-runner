@@ -79,6 +79,7 @@ export async function adjust(event: PoolEvent): Promise<void> {
         enableJitConfig,
         ghesBaseUrl,
         runnerLabels,
+        runnerDefaultLabelsEnabled,
         runnerGroup,
         runnerOwner,
         runnerNamePrefix,
