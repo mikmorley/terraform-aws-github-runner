@@ -21,6 +21,7 @@ interface RunnerStatus {
 export async function adjust(event: PoolEvent): Promise<void> {
   logger.info(`Checking current pool size against pool of size: ${event.poolSize}`);
   const runnerLabels = process.env.RUNNER_LABELS || '';
+  const runnerDefaultLabelsEnabled = process.env.RUNNER_DEFAULT_LABELS_ENABLED || 'true';
   const runnerGroup = process.env.RUNNER_GROUP_NAME || '';
   const runnerNamePrefix = process.env.RUNNER_NAME_PREFIX || '';
   const environment = process.env.ENVIRONMENT;
